@@ -5,8 +5,9 @@ import { connect } from 'react-redux'
 
 
 function VideoInfo(props){
-  // debugger
+
   function handleClick(event){
+    // debugger
     props.switchMainVideo(this.mainVideo, this.video)
   }
 
