@@ -25,7 +25,7 @@ class App extends Component {
           <h2>Handy Youtube Grabber</h2>
             <NewVideos />
             <ShowMainVideo video={this.props.videos.mainVideo} />
-            <ShowSideVideos videos={this.props.videos.relatedVideos} />
+            <ShowSideVideos videos={this.props.videos} />
       </div>
     );
   }

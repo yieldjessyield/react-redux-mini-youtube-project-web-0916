@@ -1,17 +1,29 @@
 import React from 'react';
+import VideoInfo from './VideoInfo'
 
 export default function ShowSideVideos(props){
-  debugger
-  if(props.videos === undefined){
-      var src = `https://www.youtube.com/embed/NEKlUtI3P_8`
+  // debugger
+  // var starters = [`https://www.youtube.com/embed/KbglBn7qepo`, `https://www.youtube.com/embed/BNDgHWt_jgI`, `https://www.youtube.com/embed/Z2SCRPrCX5c`, `https://www.youtube.com/embed/pbd1sZzzRSo`]
+  if(props.videos.relatedVideos === undefined){
+      var videos = ""
     } else {
-      var src = `https://www.youtube.com/embed/${props.videos.mainVideo.id}`
+      var videos = props.videos.relatedVideos.map( video => {
+      return <VideoInfo mainVideo={props.videos.mainVideo} video={video} />
+    })
     }
+
+    // function vidMaker(vids){
+    //   let freshVids = []
+    //   vids.forEach(function(vid) {
+    //     freshVids.pop(`https://www.youtube.com/embed/${vid.id}`)
+    //   });
+    //   return freshVids
+    // }
   // debugger
 
   return (
-    <div className="mainVideo">
-        <iframe width="770" height="490" src={src} />
-      </div>
-  )
+      <ul className="relatedVideos">
+        {videos}
+      </ul>
+    );
 }
